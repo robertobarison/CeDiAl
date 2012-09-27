@@ -1,0 +1,20 @@
+{#
+    default/layout.html
+    ~~~~~~~~~~~~~~~~~
+
+    Master layout template for Sphinx themes.
+
+    :copyright: Copyright 2007-2011 by the Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+{% extends "default/layout.html" %}
+
+
+{ %- block footer % }
+    <div class="footer">
+        L'autore rinuncia volontariamente ai diritti d’autore donando la propria opera al
+        <a href="http://www.anticopyrightpedia.org/?cat=10" title="PUBBLICO DOMINIO ANTISCADENZA (PDA)" 
+          onclick="window.open(this.href,'_blank');return false;"> Pubblico Dominio Antiscadenza
+        </a>
+        come azione anti-copyright contro la proprietà intellettuale.
+{ %- endblock % }

@@ -1,0 +1,76 @@
+/*
+ * roberto.css_t
+ * ~~~~~~~~~~~~~
+ *
+ * Sphinx stylesheet -- roberto004 theme.
+ *
+ * L'autore rinuncia volontariamente ai diritti d'autore donando la propria
+ * opera al Pubblico Dominio Antiscadenza come azione anti-copyright contro
+ * la proprieta' intellettuale.
+ * :license: Pubblico Dominio Antiscadenza, see LICENSE for details.
+ *
+ */
+
+@import url("cedial_template.css");
+
+
+.container {
+    border: 2px solid {{ theme_contbordo }};
+    padding: 10px 10px 10px 10px;
+    margin: 5px 0px 5px 0px;
+    border-radius: 10px;
+}
+
+/*
+ * Sfondo chiaro
+ */
+.c-chiaro {
+    color: {{ theme_contfgchiaro }};
+    background: {{ theme_contbgchiaro }};
+}
+/*
+ * Sfondo medio
+ */
+.c-medio {
+    color: {{ theme_contfgmedio }};
+    background: {{ theme_contbgmedio }};
+}
+/*
+ * Sfondo scuro
+ */
+.c-scuro {
+    color: {{ theme_contfgscuro }};
+    background: {{ theme_contbgscuro }};
+}
+/*
+ * Float a destra
+ */
+.c-destra {
+    float: right;
+}
+/*
+ * Float a sinistra
+ */
+.c-sinistra {
+    float: left;
+}
+/*
+ * Contenuto centrale
+ */
+.c-centro {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+/*
+ * Articolo
+ */
+.c-articolo {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/*
+ * Allinea dopo i float
+ */
+.c-allinea {
+    clear: both;
+}
