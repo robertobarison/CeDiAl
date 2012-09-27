@@ -1,4 +1,0 @@
-CeDiAl
-======
-
-Centro Diurno Alzheimer
