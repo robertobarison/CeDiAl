@@ -1,0 +1,30 @@
+{% extends "cedial/presentazione/presentazione.html" %}
+
+{% block pagina %}
+    <div class="titolo">Elenco pazienti</div>
+
+    <table class="link_tabella tabella">
+        <tbody>
+        <tr class="link_tabella_titolo">
+            <td class="prima" scope="col" width="5%">Ordine</td>
+            <td class="dopo" scope="col" width="10%">Paziente</td>
+            <td class="dopo" scope="col" width="10%">Nome</td>
+            <td class="dopo" scope="col" width="10%">Cognome</td>
+            <td class="dopo" scope="col" width="10%">Stato</td>
+        </tr>
+        <div class="{% cycle 'riga_pari' 'riga_dispari' as rowcolors %}"></div>
+        {% for obj in pazienti %}
+            <tr class="link_tabella">
+                <td class="prima {% cycle rowcolors %}">{{ forloop.counter }}</td>
+                <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                                    href="/presentazione/paziente/informazioni/{{ obj.id }}/">
+                    {{ obj.nome }} {{ obj.cognome }}
+                </a></td>
+                <td class="dopo {{ rowcolors }}">{{ obj.nome }}</td>
+                <td class="dopo {{ rowcolors }}">{{ obj.cognome }}</td>
+                <td class="dopo {{ rowcolors }}">{{ obj.stato }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "cedial/gestione/elenco.html" %}
+
+{% block titolo %}
+    Pazienti
+{% endblock %}
+
+{% block tabella_testa %}
+    <td class="dopo" scope="col" width="20%">Paziente</td>
+    <td class="dopo" scope="col" width="20%">Nome</td>
+    <td class="dopo" scope="col" width="20%">Cognome</td>
+    <td class="dopo" scope="col" width="20%">Stato</td>
+{% endblock %}
+
+{% block tabella_righe %}
+    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                        href="../../modifica/{{ obj.id }}/">
+        {{ obj.nome }} {{ obj.cognome }}
+    </a></td>
+    <td class="dopo {{ rowcolors }}">{{ obj.nome }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.cognome }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.stato }}</td>
+{% endblock %}

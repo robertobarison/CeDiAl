@@ -1,0 +1,22 @@
+{% extends "cedial/gestione/elenco.html" %}
+
+{% block titolo %}
+    Utenti
+{% endblock %}
+
+{% block tabella_testa %}
+    <td class="dopo" scope="col" width="10%">Utente</td>
+    <td class="dopo" scope="col" width="10%">Nome</td>
+    <td class="dopo" scope="col" width="10%">Cognome</td>
+    <td class="dopo" scope="col" width="10%">Ruolo</td>
+{% endblock %}
+
+{% block tabella_righe %}
+    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                        href="../../modifica/{{ obj.id }}/">
+        {{ obj.username }}
+    </a></td>
+    <td class="dopo {{ rowcolors }}">{{ obj.first_name }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.last_name }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.ruolo.nome }}</td>
+{% endblock %}

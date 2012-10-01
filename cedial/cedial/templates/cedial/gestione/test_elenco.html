@@ -1,0 +1,22 @@
+{% extends "cedial/gestione/elenco.html" %}
+
+{% block titolo %}
+    Test
+{% endblock %}
+
+{% block tabella_testa %}
+    <td class="dopo" scope="col" width="20%">Nome</td>
+    <td class="dopo" scope="col" width="20%">Descrizione</td>
+    <td class="dopo" scope="col" width="20%">Numero punti</td>
+    <td class="dopo" scope="col" width="20%">Stato</td>
+{% endblock %}
+
+{% block tabella_righe %}
+    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                        href="../../modifica/{{ obj.id }}/">
+        {{ obj.nome }}
+    </a></td>
+    <td class="dopo {{ rowcolors }}">{{ obj.descrizione }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.numero_punti }}</td>
+    <td class="dopo {{ rowcolors }}">{{ obj.stato }}</td>
+{% endblock %}

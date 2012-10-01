@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>{% block title %}CeDiAl{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}cedial/css/base.css"/>
+    {% block head_add %}{% endblock %}
+</head>
+
+<body>
+<div class="contenitore">
+    <div class="testata">
+        <div class="logo">
+            <a href="/" class="rweb__top" accesskey="h" title="[Home]">
+                <img src="{{ STATIC_URL }}cedial/images/logo.png" width="100" height="100" alt="CeDiAl"/></a>
+        </div>
+        <div class="stato">
+            {% load cedial_tags %}
+            {% cedial_stato utente %}
+        </div>
+        <div class="nav">
+            {% block menu %}
+                <nav class="menu_base">
+                    {% if utente %}
+                        {% cedial_menu utente %}
+                    {% else %}
+                        {% cedial_menu '' %}
+                    {% endif %}
+                </nav>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="barra sopra">
+        {% block barra_sopra %}{% endblock %}
+    </div>
+    {% if messaggio %}
+        <div class="messaggio">
+            {% block messaggio %}{{ messaggio }}{% endblock %}
+        </div>
+    {% endif %}
+    <div class="contenuto">
+        {% block contenuto %}{% endblock %}
+    </div>
+    <div class="piede">
+        {% block footer %}{% endblock %}
+    </div>
+</div>
+</body>
+
+</html>

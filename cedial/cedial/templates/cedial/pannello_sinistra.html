@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block contenuto %}
+    <div class="pannello sinistra">
+        {% block pannello %}{% endblock %}
+    </div>
+    <div class="pagina_destra">
+        {% block pagina %}{% endblock %}
+    </div>
+{% endblock %}

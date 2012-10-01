@@ -1,0 +1,16 @@
+{% extends "cedial/gestione/elenco.html" %}
+
+{% block titolo %}
+    Ente
+{% endblock %}
+
+{% block tabella_testa %}
+    <td class="dopo" scope="col" width="95%">Ente</td>
+{% endblock %}
+
+{% block tabella_righe %}
+    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                        href="../../modifica/{{ obj.id }}/">
+        {{ obj.nome }}
+    </a></td>
+{% endblock %}

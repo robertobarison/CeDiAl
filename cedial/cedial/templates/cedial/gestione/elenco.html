@@ -1,0 +1,24 @@
+{% extends "cedial/gestione/gestione.html" %}
+
+{% block pagina %}
+    <div class="titolo" xmlns="http://www.w3.org/1999/html">
+        {% block titolo %}{{ titolo }}{% endblock %}<a href="../../nuovo/0/" class="button"/>Nuovo</a>
+    </div>
+
+    <table class="link_tabella tabella">
+        <tbody>
+            <tr class="link_tabella_titolo">
+                <td class="prima" scope="col" width="5%">Ordine</td>
+                {% block tabella_testa %}{% endblock %}
+            </tr>
+            <div class="{% cycle 'riga_pari' 'riga_dispari' as rowcolors %}"></div>
+            {% for obj in elenco %}
+                <tr class="link_tabella">
+                    <td class="prima {% cycle rowcolors %}">{{ forloop.counter }}</td>
+                    {% block tabella_righe %}{% endblock %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
