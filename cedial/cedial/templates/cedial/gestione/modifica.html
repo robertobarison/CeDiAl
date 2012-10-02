@@ -1,0 +1,36 @@
+{% extends "cedial/gestione/gestione.html" %}
+
+{% block pagina %}
+    {% if azione == 'nuovo' %}
+        <div class="titolo">Nuovo {{ oggetto }}</div>
+    {% else %}
+        <div class="titolo">Modifica {{ oggetto }} {{ nome }}</div>
+    {% endif %}
+
+    {% if testo == '' %}
+        <form action="" method="post">{% csrf_token %}
+            {% for field in form %}
+                <div class='linea'>
+                    <div class='label'>{{ field.label_tag }}</div>
+                    <div class='input'>{{ field }}
+                        <div class='error'>{{ field.errors }}</div>
+                    </div>
+                </div>
+                <br/>
+            {% endfor %}
+
+            <div class="barra_pulsanti">
+                {% if azione == 'nuovo' %}
+                    <input class="button" type="submit" value="Crea {{ oggetto }}" />
+                {% else %}
+                    <input class="button" type="submit" name="modifica" value="Modifica {{ oggetto }}" />
+                    <input class="button" type="submit" name="password" value="Cambia password" />
+                    <input class="button cancella" type="submit" name="cancella" value="Cancella {{ oggetto }}" />
+                    {% block pulsanti %}{% endblock %}
+                {% endif %}
+            </div>
+        </form>
+    {% else %}
+        {{ testo }}
+    {% endif %}
+{% endblock %}

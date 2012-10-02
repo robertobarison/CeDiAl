@@ -13,7 +13,8 @@ Questa funzione fornisce l'elenco dei :ref:`pazienti <oggetto paziente>` present
 
 Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
 
-Dall'elenco dei pazienti è possibile accede alla funzione :ref:`Gestione Modifica paziente`
+Dall'elenco dei pazienti è possibile accede alle funzioni :ref:`Gestione Nuovo paziente` e
+:ref:`Gestione Modifica paziente`
 
 
 .. _Gestione Nuovo paziente:
@@ -22,7 +23,7 @@ Dall'elenco dei pazienti è possibile accede alla funzione :ref:`Gestione Modifi
 -----------------------------------------------------------------------------
 Questa funzione permette di inserire un nuovo :ref:`oggetto paziente` nel sistema.
 
-Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
+Questa funzione e' disponibile nella funzione menu :ref:`Gestione Elenco pazienti`
 
 
 .. _Gestione Modifica paziente:
@@ -42,7 +43,8 @@ Questa funzione fornisce l'elenco degli :ref:`utenti <oggetto utente>` definiti 
 
 Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
 
-Dall'elenco degli utenti è possibile accede alla funzione :ref:`Gestione Modifica utente`
+Dall'elenco degli utenti è possibile accede alle funzioni :ref:`Gestione Nuovo utente` e
+:ref:`Gestione Modifica utente`
 
 
 .. _Gestione Nuovo utente:
@@ -51,7 +53,7 @@ Dall'elenco degli utenti è possibile accede alla funzione :ref:`Gestione Modifi
 -----------------------------------------------------------------------------
 Questa funzione permette di inserire un nuovo :ref:`oggetto utente` nel sistema.
 
-Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
+Questa funzione e' disponibile nella funzione menu :ref:`Gestione Elenco utenti`
 
 
 .. _Gestione Modifica utente:
@@ -71,7 +73,8 @@ Questa funzione fornisce l'elenco dei :ref:`oggetto test` definiti nel sistema.
 
 Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
 
-Dall'elenco dei test è possibile accede alla funzione :ref:`Gestione Modifica test`
+Dall'elenco dei test è possibile accede alle funzioni :ref:`Gestione Nuovo test` e
+:ref:`Gestione Modifica test`
 
 
 .. _Gestione Nuovo test:
@@ -80,7 +83,7 @@ Dall'elenco dei test è possibile accede alla funzione :ref:`Gestione Modifica t
 -----------------------------------------------------------------------------
 Questa funzione permette di inserire un nuovo :ref:`oggetto test` nel sistema.
 
-Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
+Questa funzione e' disponibile nella funzione menu :ref:`Gestione Elenco test`
 
 
 .. _Gestione Modifica test:
@@ -100,7 +103,8 @@ Questa funzione fornisce l'elenco degli :ref:`enti <oggetto ente>` definiti nel 
 
 Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
 
-Dall'elenco degli enti è possibile accede alla funzione :ref:`Gestione Modifica ente`
+Dall'elenco degli enti è possibile accede alle funzioni :ref:`Gestione Nuovo ente` e
+:ref:`Gestione Modifica ente`
 
 
 .. _Gestione Nuovo ente:
@@ -109,7 +113,7 @@ Dall'elenco degli enti è possibile accede alla funzione :ref:`Gestione Modifica
 -----------------------------------------------------------------------------
 Questa funzione permette di inserire un nuovo :ref:`oggetto ente` nel sistema.
 
-Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
+Questa funzione e' disponibile nella funzione menu :ref:`Gestione Elenco Enti`
 
 
 .. _Gestione Modifica ente:
@@ -129,7 +133,8 @@ Questa funzione fornisce l'elenco dei :ref:`ruoli <oggetto ruolo>` definiti nel 
 
 Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
 
-Dall'elenco dei ruoli è possibile accede alla funzione :ref:`Gestione Modifica ruolo`
+Dall'elenco dei ruoli è possibile accede alle funzioni :ref:`Gestione Nuovo ruolo` e
+:ref:`Gestione Modifica ruolo`
 
 
 .. _Gestione Nuovo ruolo:
@@ -138,7 +143,7 @@ Dall'elenco dei ruoli è possibile accede alla funzione :ref:`Gestione Modifica 
 -----------------------------------------------------------------------------
 Questa funzione permette di inserire un nuovo :ref:`oggetto ruolo` nel sistema.
 
-Questa funzione e' disponibile nel menu :ref:`Menu Gestione`
+Questa funzione e' disponibile nella funzione menu :ref:`Gestione Elenco Ruoli`
 
 
 .. _Gestione Modifica ruolo:
