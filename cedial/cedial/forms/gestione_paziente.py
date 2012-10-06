@@ -36,10 +36,11 @@ from django import forms
 
 # Librerie locali
 from cedial.models import Stati
+from cedial.util import STATO_PAZ
 
 
 def get_stato():
-    stato = Stati.objects.all()
+    stato = Stati.objects.filter(tabella=STATO_PAZ)
     lista = []
     for obj in stato:
         lista.append((obj.nome, obj.nome))

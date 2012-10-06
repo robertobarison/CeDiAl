@@ -5,12 +5,15 @@
 {% endblock %}
 
 {% block tabella_testa %}
-    <td class="dopo" scope="col" width="95%">Ruolo</td>
+    <td class="dopo" scope="col" width="80%">Ruolo</td>
+    <td class="dopo" scope="col" width="15%">Azioni</td>
 {% endblock %}
 
 {% block tabella_righe %}
-    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
-                                        href="../../modifica/{{ obj.id }}/">
-        {{ obj.nome }}
-    </a></td>
+    <td class="dopo {{ rowcolors }}">
+        <a class="link_tabella_link" href="../../modifica/{{ obj.id }}/">{{ obj.nome }}</a>
+    </td>
+    <td class="dopo {{ rowcolors }}">
+        <a class="link_tabella_link" href="../../elimina/{{ obj.id }}/">Elimina</a>
+    </td>
 {% endblock %}

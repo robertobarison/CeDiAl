@@ -8,6 +8,8 @@ CeDiAl gestisce i seguenti oggetti
 .. toctree::
    :maxdepth: 1
 
+   oggetti_progetto
+   oggetti_medico
    oggetti_paziente
    oggetti_cartellaclinica
    oggetti_contatto

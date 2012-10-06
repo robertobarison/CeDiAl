@@ -1,0 +1,30 @@
+{% extends "cedial/gestione/gestione.html" %}
+
+{% block pagina %}
+    <div class="titolo">Elenco test CeDiAl</div>
+
+    <table class="link_tabella tabella">
+        <tbody>
+        <tr class="link_tabella_titolo">
+            <td class="prima" scope="col" width="5%">Ordine</td>
+            <td class="dopo" scope="col" width="10%">Nome</td>
+            <td class="dopo" scope="col" width="10%">Descrizione</td>
+            <td class="dopo" scope="col" width="10%">Numero punti</td>
+            <td class="dopo" scope="col" width="10%">Stato</td>
+        </tr>
+        <div class="{% cycle 'riga_pari' 'riga_dispari' as rowcolors %}"></div>
+        {% for obj in tests %}
+            <tr class="link_tabella">
+                <td class="prima {% cycle rowcolors %}">{{ forloop.counter }}</td>
+                <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                                    href="/gestione/test/modifica/{{ obj.id }}/">
+                    {{ obj.nome }}
+                </a></td>
+                <td class="dopo {{ rowcolors }}">{{ obj.descrizione }}</td>
+                <td class="dopo {{ rowcolors }}">{{ obj.numero_punti }}</td>
+                <td class="dopo {{ rowcolors }}">{{ obj.stato }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

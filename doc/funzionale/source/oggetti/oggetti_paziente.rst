@@ -10,15 +10,27 @@ L'oggetto paziente contiene le seguenti informazioni:
 - Nome
 - Cognome
 - Soprannome
+- Sesso
 - Data di nascita
 - Luogo di nascita
-- Informazioni familiari
 - Residenza
+- Tipo di residenza (Tabella)
+- Stato Civile (Tabella)
+- Lingua (Tabella)
+- Titolo di studio (Tabella)
+- Professioni svolte (Tabella)
+
+- Informazioni familiari
+
 - :ref:`Oggetto Contatto`
 - Mezzo di trasferimento al Centro Diurno
 - Data di inizio frequenza Centro Diurno
-- Medico curante
-- Diagnosi
+- Data di fine frequenza Centro Diurno
+- Motivo fine frequenza (Tabella)
+- :ref:`Medico Curante<Oggetto Medico>`
+
+- :ref:`Oggetto Cartella Clinica`
+
 - Storia del paziente (eventi principali della sua vita)
 
 - Stato in CeDiAl (collegare gli stati dispinibili)
@@ -26,4 +38,8 @@ L'oggetto paziente contiene le seguenti informazioni:
 L'oggetto paziente viene creato dalla funzione :ref:`Gestione Nuovo Paziente` e viene modificato e cancellato dalla
 funzione :ref:`Gestione Modifica Paziente`.
 
+Operazioni sui pazienti:
 
+- nuovo paziente (anagrafica)
+- modifica paziente (anagrafica)
+- cambia stato (opeartivo)

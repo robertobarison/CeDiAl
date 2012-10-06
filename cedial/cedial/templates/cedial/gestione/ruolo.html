@@ -21,12 +21,10 @@
 
             <div class="barra_pulsanti">
                 {% if azione == 'nuovo' %}
-                    <input class="button" type="submit" value="Crea {{ oggetto }}" />
+                    <input class="button" type="submit" value="Crea utente" />
                 {% else %}
-                    <input class="button" type="submit" name="modifica" value="Modifica {{ oggetto }}" />
-                    <input class="button" type="submit" name="password" value="Cambia password" />
-                    <input class="button cancella" type="submit" name="cancella" value="Elimina {{ oggetto }}" />
-                    {% block pulsanti %}{% endblock %}
+                    <input class="button" type="submit" name="modifica" value="Modifica ruolo" />
+                    <input class="button cancella" type="submit" name="cancella" value="Cancella ruolo" />
                 {% endif %}
             </div>
         </form>

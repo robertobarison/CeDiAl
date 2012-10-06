@@ -49,7 +49,7 @@ from cedial.models import Enti, Pazienti, Ruoli, Stati, Tests, Utenti
 from cedial.util import PERM_UTENTI, PERM_PAZIENTI, PERM_TEST, PERM_RUOLI, \
     STATO_TEST_INATTIVO, \
     AZ_GEST_ELENCO, AZ_GEST_MODIFICA, AZ_GEST_NUOVO, \
-    OBJ_ENTE, OBJ_UTENTE, OBJ_TEST, OBJ_RUOLO, OBJ_PAZIENTE
+    OBJ_ENTE, OBJ_UTENTE, OBJ_TEST, OBJ_RUOLO, OBJ_PAZIENTE, AZ_GEST_ELIMINA
 
 def gestione(request):
     """
@@ -579,119 +579,7 @@ def utente(request, azione, id_utente):
     return ret
 
 
-def ruolo(request, azione, id_ruolo):
-    """
-    Funzione di amministrazione dei ruoli
-    """
-    tstart = datetime.datetime.now()
-    logger = logging.getLogger('cedial.file')
-    variabili = {'data': datetime.date.today()}
-
-    ret = ''
-    messaggio = ''
-    testo = ''
-    form = ''
-
-    try:
-        utente = Utenti.objects.get(id=request.user.id)
-        variabili['utente'] = utente
-
-        if utente.ruolo.funzionalita.filter(nome=PERM_TEST).exists():
-            variabili['azione'] = azione
-
-            if azione == AZ_GEST_NUOVO:
-                if request.method == 'POST':
-                    form = GestioneRuoloForm(request.POST, modifica=False)
-                    variabili['form'] = form
-                    if form.is_valid():
-                        nome = request.POST['nome']
-                        try:
-                            Ruoli.objects.get(nome=nome)
-                            messaggio = u"ruolo gia' presente"
-                        except Ruoli.DoesNotExist:
-                            ruolo = Ruoli()
-                            ruolo.nome = request.POST['nome']
-                            ruolo.save()
-                            testo = 'Ruolo ' + nome + ' creato correttamente'
-                            audit = logging.getLogger('cedial.audit')
-                            audit.info('action=user_create user=%s new_user=%s' % (request.user, nome, ))
-                        else:
-                            messaggio = u'Alcuni campi non sono stati compilati'
-                else:
-                    variabili['form'] = GestioneRuoloForm(modifica=False)
-
-                if messaggio != '':
-                    logger.info('action=errmsg sessionid=%s - %s' % (request.COOKIES["sessionid"], messaggio, ))
-                    variabili['messaggio'] = messaggio
-                variabili['testo'] = testo
-                ret = render_to_response('cedial/gestione/ruolo.html', variabili, RequestContext(request))
-
-            elif azione == AZ_GEST_MODIFICA:
-                if request.method == 'POST':
-                    if 'modifica' in request.POST:
-                        form = GestioneRuoloForm(request.POST, modifica=True)
-                        variabili['form'] = form
-                        if form.is_valid():
-                            ruolo = Ruoli.objects.get(id=id_ruolo)
-                            ruolo.nome = request.POST['nome']
-                            ruolo.save()
-                            testo = "Ruolo " + ruolo.nome + " modificato"
-                            audit = logging.getLogger('cedial.audit')
-                            audit.info('action=user_modify user=%s new_user=%s' % (request.user, ruolo.nome, ))
-                        else:
-                            messaggio = u'Alcuni campi non sono stati compilati'
-                    elif 'password' in request.POST:
-                        logger.debug('password=%s' % request.POST['password'])
-                    elif 'cancella' in request.POST:
-                        logger.debug('cancella=%s' % request.POST['cancella'])
-                else:
-                    try:
-                        ruolo = Ruoli.objects.get(id=id_ruolo)
-                        init = {
-                            'nome': ruolo.nome,
-                            }
-                        form = GestioneRuoloForm(initial=init, modifica=True)
-                        variabili['nome'] = ruolo.nome
-                    except Ruoli.DoesNotExist:
-                        logger.info('action=redirect_to_gestione_sommario')
-                        ret = render_to_response('cedial/gestione/gestione_sommario.html',
-                            variabili, RequestContext(request))
-                if ret == '':
-                    variabili['form'] = form
-                    variabili['testo'] = testo
-                    variabili['messaggio'] = messaggio
-                    ret = render_to_response('cedial/gestione/ruolo.html', variabili, RequestContext(request))
-
-            #azione di default elenco
-            else:
-                azione = AZ_GEST_ELENCO
-                try:
-                    tabella = Ruoli
-                    variabili['elenco'] = tabella.objects.all()
-                    ret = render_to_response('cedial/gestione/ruolo_elenco.html', variabili, RequestContext(request))
-                except tabella.DoesNotExist:
-                    logger.info('action=redirect_to_home msg=ruoli_non_esiste')
-                    ret = render_to_response('cedial/presentazione/presentazione_sommario.html',
-                        variabili, RequestContext(request))
-
-        else:
-            logger.info('action=redirect_to_home msg=utente_non_autorizzato')
-            ret = render_to_response('cedial/presentazione/presentazione_sommario.html',
-                variabili, RequestContext(request))
-
-    except Utenti.DoesNotExist:
-        logger.info('action=redirect_to_home msg=utente_non_esiste')
-        ret = render_to_response('cedial/presentazione/presentazione_sommario.html',
-            variabili, RequestContext(request))
-
-    tend = datetime.datetime.now()
-    logger.info('azione=%s method=%s path=%s ipaddr=%s sessionid=%s user=%s responsetime=%s' %
-                (azione, request.method, request.path, request.META['REMOTE_ADDR'], request.COOKIES["sessionid"],
-                 request.user, (tend - tstart).microseconds ))
-    return ret
-
-
-def nuovo(request, oggetto, tabella):
+def nuovo(request, oggetto, tabella, form):
     """
     Funzione di gestione della ricezione della form per la creazione di un nuovo oggetto
 
@@ -699,20 +587,43 @@ def nuovo(request, oggetto, tabella):
     testo: testo da scrivere nel log
     messaggio: messaggio di errore da visualizzare all'utente
     """
-    messaggio = 'tipo di oggetto non riconosciuto'
+    messaggio = ''
     testo = ''
-    if oggetto == OBJ_RUOLO:
+    id = ''
+
+    if oggetto == OBJ_PAZIENTE:
+        nome = form.cleaned_data['nome']
+        cognome = form.cleaned_data['cognome']
+        try:
+            tabella.objects.get(nome=nome, cognome=cognome)
+            messaggio = oggetto + u" gia' presente"
+        except tabella.DoesNotExist:
+            obj = tabella()
+            obj.nome = form.cleaned_data['nome']
+            obj.cognome = form.cleaned_data['cognome']
+            obj.stato = Stati.objects.get(tabella='Paziente', nome=form.cleaned_data['stato'])
+            obj.save()
+            nome = obj.nome + ' ' + obj.cognome
+            id = obj.id
+
+    elif oggetto == OBJ_RUOLO:
         nome = request.POST['nome']
         try:
             tabella.objects.get(nome=nome)
             messaggio = oggetto + u" gia' presente"
         except tabella.DoesNotExist:
-            ruolo = tabella()
-            ruolo.nome = request.POST['nome']
-            ruolo.save()
-            testo = oggetto + ' ' + nome + ' creato correttamente'
-            audit = logging.getLogger('cedial.audit')
-            audit.info('action=user_create user=%s %s=%s' % (request.user, oggetto, nome, ))
+            obj = tabella()
+            obj.nome = request.POST['nome']
+            obj.save()
+            id = obj.id
+
+    else:
+        messaggio = 'tipo di oggetto non riconosciuto'
+
+    if messaggio == '':
+        testo = oggetto + ' ' + nome + ' creato correttamente'
+        audit = logging.getLogger('cedial.audit')
+        audit.info('action=create oggetto=%s uname=%s id=%s user=%s' % (oggetto, nome.replace(' ', '_'), id, request.user, ))
 
     return testo, messaggio
 
@@ -729,16 +640,16 @@ def modifica_get(oggetto, obj):
     return init, nome
 
 
-def modifica_post(oggetto, obj):
+def modifica_post(request, oggetto, obj):
     nome = ''
     if oggetto == OBJ_RUOLO:
+        obj.nome = request.POST['nome']
+        obj.save()
+        testo = "Ruolo " + obj.nome + " modificato"
+        audit = logging.getLogger('cedial.audit')
+        audit.info('action=user_modify user=%s new_user=%s' % (request.user, obj.nome, ))
 
-        init = {
-            'nome': obj.nome,
-            }
-        nome = obj.nome
-
-    return init, nome
+    return testo
 
 
 def azioni(request, oggetto, azione, id_obj):
@@ -797,7 +708,7 @@ def azioni(request, oggetto, azione, id_obj):
                     form = nomeform(request.POST, modifica=False)
                     variabili['form'] = form
                     if form.is_valid():
-                        testo, messaggio = nuovo(request, oggetto, tabella)
+                        testo, messaggio = nuovo(request, oggetto, tabella, form)
                     else:
                         messaggio = u'Alcuni campi non sono stati compilati'
                 else:
@@ -817,12 +728,8 @@ def azioni(request, oggetto, azione, id_obj):
                         form = nomeform(request.POST, modifica=True)
                         variabili['form'] = form
                         if form.is_valid():
-                            ruolo = tabella.objects.get(id=id_obj)
-                            ruolo.nome = request.POST['nome']
-                            ruolo.save()
-                            testo = "Ruolo " + ruolo.nome + " modificato"
-                            audit = logging.getLogger('cedial.audit')
-                            audit.info('action=user_modify user=%s new_user=%s' % (request.user, ruolo.nome, ))
+                            obj = tabella.objects.get(id=id_obj)
+                            testo = modifica_post(request, oggetto, obj)
                         else:
                             messaggio = u'Alcuni campi non sono stati compilati'
                     elif 'password' in request.POST:
@@ -844,6 +751,9 @@ def azioni(request, oggetto, azione, id_obj):
                     variabili['testo'] = testo
                     variabili['messaggio'] = messaggio
                     ret = render_to_response('cedial/gestione/ruolo.html', variabili, RequestContext(request))
+
+            elif azione == AZ_GEST_ELIMINA:
+                pass
 
             # Azione di default elenco
             else:

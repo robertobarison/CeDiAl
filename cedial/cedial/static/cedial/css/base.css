@@ -1,0 +1,540 @@
+/* css cedial base - 'Base', by Roberto barison  */
+
+/*------ elementi base ----------------------------------------------------*/
+
+html {
+    background: #f4f8fa;
+    color: #222222;
+}
+
+body {
+    background: #f4f8fa;
+    color: #222222;
+    font: 12px "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #436976;
+    font-size: 180%;
+    font-weight: bolder;
+    padding: 0.5em 0 0.5em 0;
+}
+
+h2 {
+    color: #436976;
+    font-size: 150%;
+    font-weight: bolder;
+    padding: 0.5em 0 0.5em 0;
+}
+
+.titolo {
+    color: #436976;
+    font-size: 200%;
+    font-weight: bolder;
+    padding: 0 0 0.5em 0;
+}
+
+/* *************************************************************************
+ * Template base
+ * *************************************************************************/
+
+/*------ contenitore ------------------------------------------------------*/
+
+.contenitore {
+    margin: auto;
+}
+
+/*------ testata ----------------------------------------------------------*/
+
+.testata {
+    background: #ffffff;
+    color: #336699;
+    margin: 0;
+    padding: 2px 0 0;
+    height: auto;
+    vertical-align: middle;
+}
+
+/*------ logo -------------------------------------------------------------*/
+
+.logo {
+    background: #ffffff;
+    color: #dee7ec;
+    font-size: 250%;
+    font-weight: bolder;
+    float: left;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.logo a {
+    background: #ffffff;
+    color: #dee7ec !important;
+    text-decoration: none !important;
+    font-variant: small-caps;
+    letter-spacing: 2pt;
+}
+
+/*------ stato ------------------------------------------------------------*/
+
+.stato {
+    color: #436976;
+    font-size: 130%;
+    font-weight: bolder;
+    text-align: right;
+    float: right;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.stato a {
+    color: #436976 !important;
+    text-decoration: none !important;
+    letter-spacing: 2pt;
+}
+
+/*------ barra ------------------------------------------------------------*/
+
+.sopra {
+    border-top: 3px solid #436976;
+    padding: 0 10px 0 10px;
+    clear: both;
+}
+
+.footer {
+    clear: both;
+}
+
+/*------ messaggio --------------------------------------------------------*/
+
+.messaggio {
+    border-top: 1px solid #436976;
+    border-bottom: 1px solid #436976;
+    color: #ff0000;
+    background: #ffffcc;
+    font-size: 120%;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0.5em 0 0.5em 0;
+}
+
+/*------ contenuto --------------------------------------------------------*/
+
+.contenuto {
+    border: #cccccc 0 dotted;
+    margin: 0;
+    padding: 10px;
+}
+
+/*------ piede ------------------------------------------------------------*/
+
+.piede {
+}
+
+/* *************************************************************************
+ * Menu
+ * *************************************************************************/
+
+/*------ menu_base---------------------------------------------------------*/
+
+.menu_base {
+    background-color: #ffffff;
+}
+
+.menu_base ul {
+    list-style: none;
+    overflow: hidden;
+    height: 90px;
+    margin: 0;
+    padding: 20px 20px 0 20px;
+}
+
+.menu_base li {
+    display: inline;
+}
+
+.menu_base li a {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 40px;
+    margin: 50px 2px 0 2px;
+    border-top: 3px solid #436976;
+    border-right: 3px solid #436976;
+    border-left: 3px solid #436976;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+    color: #436976;
+    padding: 10px 0 0 0;
+}
+
+.menu_base li a span {
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.menu_base li a b {
+    display: block;
+    margin-top: 10px;
+}
+
+.menu_base li a:hover {
+    height: 100px;
+    margin-top: 40px;
+    font-size: 12px;
+}
+
+.menu_base li a {
+    background-color: #dee7ec;
+}
+
+.menu_base li a span {
+    background-color: #dee7ec;
+}
+
+/*------ menu_pannelli -----------------------------------------------------*/
+
+.menu_pannello {
+    width: 210px;
+    margin: 10px auto auto;
+    text-transform: uppercase;
+    background-color: #dee7ec;
+}
+
+.menu_pannello p {
+    padding-left: 10px;
+    font-weight: bold;
+    color: #dee7ec;
+    font-size: 13px;
+}
+
+.menu_pannello ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu_pannello li a {
+    text-decoration: none;
+}
+
+.menu_pannello span {
+    color: #436976;
+}
+
+.menu_pannello a {
+    display: block;
+    height: 25px;
+    text-align: right;
+    line-height: 25px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: #436976;
+    padding-right: 30px;
+    border: 2px solid #ffffff;
+}
+
+.menu_pannello a:hover {
+    background: #dee7ec center right;
+    padding-right: 10px;
+}
+
+.menu_pannello a.selezionato {
+    background: #dee7ec bottom right;
+    padding-right: 10px;
+}
+
+/* *************************************************************************
+ * Template pannelli
+ * *************************************************************************/
+
+/*------ pannello ---------------------------------------------------------*/
+
+.pannello {
+    width: 250px;
+    padding: 0.5em 0.5em 0.7em 0.5em;
+}
+
+.titolo_pannello {
+    color: #436976;
+    font-size: 120%;
+    font-weight: bolder;
+    padding: 0.5em 0 0.5em 0;
+}
+
+.hr_pannello {
+    margin: 20px 0 10px 0;
+}
+
+/*------ pannello a sinistra ----------------------------------------------*/
+
+.sinistra {
+    border: 1px solid #8cacbb;
+    background-color: #ffffff;
+    float: left;
+    vertical-align: middle;
+    margin: 0 5px 10px 0;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/*------ pannello a destra ------------------------------------------------*/
+
+.destra {
+    border: 1px solid #8cacbb;
+    background-color: #ffffff;
+    float: right;
+    vertical-align: middle;
+    margin: 0 0 10px 5px;
+}
+
+/*------ contenuto pagina destra ------------------------------------------*/
+
+.pagina_destra {
+    padding: 10px;
+    margin: 0 0 10px 270px;
+    border: 1px solid #8cacbb;
+    background-color: #ffffff;
+    vertical-align: middle;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/*------ contenuto pagina intera ------------------------------------------*/
+
+.pagina_intera {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    border: 1px solid #8cacbb;
+    background-color: #ffffff;
+    vertical-align: middle;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* *************************************************************************
+ * Login
+ * *************************************************************************/
+
+.fieldWrapper {
+    text-align: center;
+    font-weight: bolder;
+    color: #436976;
+}
+
+.button {
+    height: 27px;
+    line-height: 25px;
+    width: auto;
+    margin-left: 5px;
+    text-align: center;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border: 2px solid #436976;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    font-weight: bolder;
+    background: #436976;
+}
+
+a.pulsante_nuovo {
+    height: 27px;
+    line-height: 25px;
+    width: auto;
+    margin-left: 5px;
+    text-align: center;
+    padding: 0 10px;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 2px solid #436976;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    font-weight: bolder;
+    background: #436976;
+    text-decoration: none !important;
+}
+
+.cancella {
+    background: red;
+}
+
+/* *************************************************************************
+ * Form
+ * *************************************************************************/
+
+/*------ form -------------------------------------------------------------*/
+
+.label label {
+    display: inline;
+    width: 200px;
+    padding: 5px 0 0 0;
+    float: left;
+}
+
+.input input {
+    width: 200px;
+    display: inline;
+    padding: 5px 0 0 0;
+    align: left;
+}
+
+.error {
+    display: inline;
+    text-decoration: none;
+}
+
+.errorlist ul {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 20px 20px 0 20px;
+    display: inline;
+}
+
+.errorlist li {
+    display: inline;
+    color: red;
+    font-weight: bolder;
+}
+
+/* *************************************************************************
+ * Template tabelle
+ * *************************************************************************/
+
+/*------ tabelle ----------------------------------------------------------*/
+
+.titolo {
+    color: #436976;
+    font-size: 200%;
+    font-weight: bolder;
+    padding: 0 0 0.5em 0;
+}
+
+.aggiungi {
+    float: right;
+    color: #ffffff;
+    background-color: #436976;
+    padding: 5px 15px 5px 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.aggiungi a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.aggiungi a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.aggiungi a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 120%
+}
+
+.tabella {
+    font-size: 100%;
+    color: #436976;
+    text-decoration: none;
+}
+
+.tabella tr {
+    border-top: 1px solid #8cacbb;
+    border-bottom: 1px solid #8cacbb;
+    background: #eff4f3;
+}
+
+.link_tabella a:link {
+    font-size: 100%;
+    color: #436976;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.link_tabella a:visited {
+    color: #436976;
+    text-decoration: none;
+}
+
+table {
+    font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    padding: 0 0.5em;
+    text-align: left;
+}
+
+.tabella_titolo td {
+    border-top: 1px solid #8cacbb;
+    border-bottom: 1px solid #8cacbb;
+    background: #dee7ec;
+    font-weight: bolder;
+}
+
+.tabella_titolo a:link {
+    font-size: 100%;
+    color: #436976;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.tabella_titolo a:visited {
+    color: #436976;
+    text-decoration: none;
+}
+
+td {
+    border-top: 1px solid #8cacbb;
+    border-bottom: 1px solid #8cacbb;
+    padding: 0 0.5em;
+    text-align: center;
+}
+
+td.dopo {
+    border-left: 1px solid #8cacbb;
+    text-align: center;
+}
+
+td.riga_pari {
+    background: #eff4f3;
+}
+
+td.riga_dispari {
+    background: #ffffff;
+}
+
+/*-------------------------------------------------------------------------*/
+

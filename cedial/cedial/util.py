@@ -81,7 +81,7 @@ STATO_PAZ = 'Paziente'
 STATO_PAZ_ATTESA = 'Attesa'
 STATO_PAZ_ATTIVO = 'Attivo'
 STATO_PAZ_SOSPESO = 'Sospeso'
-STATO_PAZ_FINITO = 'Finito'
+STATO_PAZ_CONGEDATO = 'Congedato'
 
 
 # ===========================================================================
@@ -99,5 +99,6 @@ STATO_TEST_SOSPESO = 'Sospeso'
 AZ_GEST_ELENCO = 'elenco'
 AZ_GEST_NUOVO = 'nuovo'
 AZ_GEST_MODIFICA = 'modifica'
+AZ_GEST_ELIMINA = 'elimina'
 
 

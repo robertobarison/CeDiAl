@@ -1,0 +1,30 @@
+{% extends "cedial/gestione/gestione.html" %}
+
+{% block pagina %}
+    <div class="titolo">Elenco utenti CeDiAl</div>
+
+    <table class="link_tabella tabella">
+        <tbody>
+            <tr class="link_tabella_titolo">
+                <td class="prima" scope="col" width="5%">Ordine</td>
+                <td class="dopo" scope="col" width="10%">Utente</td>
+                <td class="dopo" scope="col" width="10%">Nome</td>
+                <td class="dopo" scope="col" width="10%">Cognome</td>
+                <td class="dopo" scope="col" width="10%">Ruolo</td>
+            </tr>
+            <div class="{% cycle 'riga_pari' 'riga_dispari' as rowcolors %}"></div>
+            {% for obj in utenti %}
+                <tr class="link_tabella">
+                    <td class="prima {% cycle rowcolors %}">{{ forloop.counter }}</td>
+                    <td class="dopo {{ rowcolors }}"><a class="link_tabella_link"
+                                                        href="/gestione/utente/modifica/{{ obj.id }}/">
+                        {{ obj.username }}
+                    </a></td>
+                    <td class="dopo {{ rowcolors }}">{{ obj.first_name }}</td>
+                    <td class="dopo {{ rowcolors }}">{{ obj.last_name }}</td>
+                    <td class="dopo {{ rowcolors }}">{{ obj.ruolo.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -2,9 +2,9 @@
 
 {% block pagina %}
     {% if azione == 'nuovo' %}
-        <div class="titolo">Nuovo {{ oggetto }}</div>
+        <div class="titolo">Nuovo test</div>
     {% else %}
-        <div class="titolo">Modifica {{ oggetto }} {{ nome }}</div>
+        <div class="titolo">Test {{ test.nome }}</div>
     {% endif %}
 
     {% if testo == '' %}
@@ -21,16 +21,19 @@
 
             <div class="barra_pulsanti">
                 {% if azione == 'nuovo' %}
-                    <input class="button" type="submit" value="Crea {{ oggetto }}" />
+                    <input class="button" type="submit" value="Crea test" />
                 {% else %}
-                    <input class="button" type="submit" name="modifica" value="Modifica {{ oggetto }}" />
-                    <input class="button" type="submit" name="password" value="Cambia password" />
-                    <input class="button cancella" type="submit" name="cancella" value="Elimina {{ oggetto }}" />
-                    {% block pulsanti %}{% endblock %}
+                    <input class="button" type="submit" name="modifica" value="Modifica test" />
+                    <input class="button cancella" type="submit" name="cancella" value="Cancella test" />
                 {% endif %}
             </div>
         </form>
     {% else %}
-        {{ testo }}
+        <p>{{ testo }}</p>
+        <form action="/gestione/punti/modifica/{{ test.id }}/" method="get">{% csrf_token %}
+            <div class="barra_pulsanti">
+                <input class="button" type="submit" value="Modifica punti" />
+            </div>
+        </form>
     {% endif %}
 {% endblock %}

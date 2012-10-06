@@ -9,6 +9,7 @@
     <td class="dopo" scope="col" width="20%">Descrizione</td>
     <td class="dopo" scope="col" width="20%">Numero punti</td>
     <td class="dopo" scope="col" width="20%">Stato</td>
+    <td class="dopo" scope="col" width="15%">Azioni</td>
 {% endblock %}
 
 {% block tabella_righe %}
@@ -19,4 +20,9 @@
     <td class="dopo {{ rowcolors }}">{{ obj.descrizione }}</td>
     <td class="dopo {{ rowcolors }}">{{ obj.numero_punti }}</td>
     <td class="dopo {{ rowcolors }}">{{ obj.stato }}</td>
+    <td class="dopo {{ rowcolors }}">
+        <a class="link_tabella_link" href="../../elimina/{{ obj.id }}/">Elimina</a>
+        <a class="link_tabella_link" href="../../clona/{{ obj.id }}/">Clona</a>
+        <a class="link_tabella_link" href="../../abilita-disabilita/{{ obj.id }}/">Abilita-Disabilita</a>
+    </td>
 {% endblock %}
