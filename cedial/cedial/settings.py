@@ -43,6 +43,8 @@ if os.getcwd() == "/data/roberto/dev/cedial/cedial":
 else:
     DEBUG = False
 
+DEBUG = True
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
